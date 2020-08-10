@@ -6,8 +6,8 @@ class App extends Component { //class can t be used, for instead, className is u
     return (
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
-        <p>Nicely working!</p>
-        <Person/>
+        <p>Nicely working! </p>
+        <Person name="Erfan" age="21"/>
       </div>
     );
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi, I m called React')); alternative way
