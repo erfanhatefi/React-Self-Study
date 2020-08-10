@@ -8,11 +8,21 @@ class App extends Component { //class can t be used, for instead, className is u
       {name: "ًRandkill", age: "23"}
     ]
   }
+
+  swithcNameHandler = () => {
+    this.setState({
+      persons: [
+        {name: "Erfan Randkill", age: "23"},
+        {name: "ًRandkill", age: "23"}
+      ]
+    })
+  }
   render() {
     return (
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
         <p>Nicely working! </p>
+        <button onClick={this.swithcNameHandler}>Switch Name</button>
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>Hei there</Person>
         <Person name={this.state.persons[1].name} age={this.state.persons[0].age}></Person>
       </div>
