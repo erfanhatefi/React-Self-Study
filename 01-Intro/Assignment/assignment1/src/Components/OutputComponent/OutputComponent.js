@@ -3,7 +3,7 @@ import './OutputComponent.css'
 
 const OutputComponent = (props) => {
     return(
-        <div>
+        <div className='Output'>
             <h1>Username: {props.username}</h1>
         </div>
     )
