@@ -9,7 +9,14 @@ class App extends Component { //class can t be used, for instead, className is u
     ]
   }
 
-
+  nameChangeHandler = (event) => {
+    this.setState({
+      persons: [
+        {name: event.target.value, age: "23"},
+        {name: "ًRandkill", age: "23"}
+      ]
+    })
+  }
 
   swithcNameHandler = (newName) => {
     this.setState({
@@ -29,6 +36,7 @@ class App extends Component { //class can t be used, for instead, className is u
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
           click={this.swithcNameHandler}
+          change={this.nameChangeHandler}
         >Hei there</Person>
         <Person 
           name={this.state.persons[1].name} 
