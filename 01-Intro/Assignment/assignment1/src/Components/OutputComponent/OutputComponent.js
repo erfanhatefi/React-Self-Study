@@ -1,4 +1,5 @@
 import React from 'react'
+import './OutputComponent.css'
 
 const OutputComponent = (props) => {
     return(
