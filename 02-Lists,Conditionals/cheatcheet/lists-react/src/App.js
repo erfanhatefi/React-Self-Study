@@ -5,7 +5,8 @@ class App extends Component { //class can t be used, for instead, className is u
   state = {
     persons: [
       {name: "Erfan", age: "22"},
-      {name: "ًRandkill", age: "23"}
+      {name: "ًRandkill", age: "23"},
+      {name: "Randkill 3", age: "24"}
     ]
   }
 
@@ -13,7 +14,8 @@ class App extends Component { //class can t be used, for instead, className is u
     this.setState({
       persons: [
         {name: event.target.value, age: "23"},
-        {name: "ًRandkill", age: "23"}
+        {name: "ًRandkill", age: "23"},
+        {name: "Randkill 3", age: "24"}
       ]
     })
   }
@@ -22,7 +24,8 @@ class App extends Component { //class can t be used, for instead, className is u
     this.setState({
       persons: [
         {name: newName, age: "23"},
-        {name: "ًRandkill", age: "23"}
+        {name: "ًRandkill", age: "23"},
+        {name: "Randkill 3", age: "24"}
       ]
     })
   }
@@ -40,8 +43,13 @@ class App extends Component { //class can t be used, for instead, className is u
         >Hei there</Person>
         <Person 
           name={this.state.persons[1].name} 
-          age={this.state.persons[0].age}
+          age={this.state.persons[1].age}
           click={this.swithcNameHandler.bind(this, 'Randkilllllll')}
+        ></Person>
+        <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age}
+          click={this.swithcNameHandler.bind(this, 'Randkilll')}
         ></Person>
       </div>
     );
