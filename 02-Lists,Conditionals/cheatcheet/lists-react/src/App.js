@@ -37,32 +37,31 @@ class App extends Component { //class can t be used, for instead, className is u
   }
 
   render() {
+    let persons = null
+
+    if (this.state.showPersons === true) {
+      persons = (
+        <div>
+          {
+            this.state.persons.map(person => {
+              return(
+                <Person
+                name={person.name}
+                age={person.age}
+                />
+              )
+            })
+          }
+          </div>
+      )
+    }
+    
     return (
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
         <p>Nicely working! </p>
         <button onClick={this.showHideButtonHandler}>Switch Name</button>
-        { this.state.showPersons ?
-          <div>
-            <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}
-          click={this.swithcNameHandler}
-          change={this.nameChangeHandler}
-        >Hei there</Person>
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}
-          click={this.swithcNameHandler.bind(this, 'Randkilllllll')}
-        ></Person>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age}
-          click={this.swithcNameHandler.bind(this, 'Randkilll')}
-        ></Person>
-          </div>
-          : null
-        }
+        {persons}
       </div>
     );
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi, I m called React')); alternative way
