@@ -7,7 +7,8 @@ class App extends Component { //class can t be used, for instead, className is u
       {name: "Erfan", age: "22"},
       {name: "ًRandkill", age: "23"},
       {name: "Randkill 3", age: "24"}
-    ]
+    ],
+    showPersons: false
   }
 
   nameChangeHandler = (event) => {
@@ -29,13 +30,21 @@ class App extends Component { //class can t be used, for instead, className is u
       ]
     })
   }
+
+  showHideButtonHandler = () => {
+    let personVisibility = this.state.showPersons
+    this.setState({showPersons: !personVisibility})
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
         <p>Nicely working! </p>
-        <button onClick={() => this.swithcNameHandler('Randkillli')}>Switch Name</button>
-        <Person 
+        <button onClick={this.showHideButtonHandler}>Switch Name</button>
+        { this.state.showPersons ?
+          <div>
+            <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
           click={this.swithcNameHandler}
@@ -51,6 +60,9 @@ class App extends Component { //class can t be used, for instead, className is u
           age={this.state.persons[2].age}
           click={this.swithcNameHandler.bind(this, 'Randkilll')}
         ></Person>
+          </div>
+          : null
+        }
       </div>
     );
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi, I m called React')); alternative way
