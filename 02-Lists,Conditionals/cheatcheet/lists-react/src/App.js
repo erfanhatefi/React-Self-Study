@@ -21,19 +21,15 @@ class App extends Component { //class can t be used, for instead, className is u
     })
   }
 
-  swithcNameHandler = (newName) => {
-    this.setState({
-      persons: [
-        {name: newName, age: "23"},
-        {name: "ًRandkill", age: "23"},
-        {name: "Randkill 3", age: "24"}
-      ]
-    })
+  showHideButtonHandler = () =>{
+    const personStatus = this.state.showPersons
+    this.setState({showPersons: !personStatus})
   }
 
-  showHideButtonHandler = () => {
-    let personVisibility = this.state.showPersons
-    this.setState({showPersons: !personVisibility})
+  deletePersonHandler = (personIndex) => {
+    const persons = this.state.persons
+    persons.splice(personIndex, 1)
+    this.setState({persons: persons})
   }
 
   render() {
@@ -43,9 +39,10 @@ class App extends Component { //class can t be used, for instead, className is u
       persons = (
         <div>
           {
-            this.state.persons.map(person => {
+            this.state.persons.map((person, index) => {
               return(
                 <Person
+                click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
                 />
@@ -55,7 +52,7 @@ class App extends Component { //class can t be used, for instead, className is u
           </div>
       )
     }
-    
+
     return (
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
