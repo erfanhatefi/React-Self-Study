@@ -9,6 +9,8 @@ class App extends Component { //class can t be used, for instead, className is u
     ]
   }
 
+
+
   swithcNameHandler = () => {
     this.setState({
       persons: [
@@ -23,8 +25,15 @@ class App extends Component { //class can t be used, for instead, className is u
         <h1>Hello, this is my first React app!</h1>
         <p>Nicely working! </p>
         <button onClick={this.swithcNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>Hei there</Person>
-        <Person name={this.state.persons[1].name} age={this.state.persons[0].age}></Person>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          click={this.swithcNameHandler}
+        >Hei there</Person>
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[0].age}
+        ></Person>
       </div>
     );
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi, I m called React')); alternative way
