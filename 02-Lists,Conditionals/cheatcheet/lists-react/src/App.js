@@ -11,14 +11,38 @@ class App extends Component { //class can t be used, for instead, className is u
     showPersons: false
   }
 
-  nameChangeHandler = (event) => {
-    this.setState({
-      persons: [
-        {name: event.target.value, age: "23"},
-        {name: "ًRandkill", age: "23"},
-        {name: "Randkill 3", age: "24"}
-      ]
+  nameChangeHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return (p.id === id)
     })
+    //console.log(personIndex)
+    
+    const tempPersons = [...this.state.persons]
+
+    const newName = event.target.value
+    tempPersons[personIndex].name = newName
+    //console.log(tempPersons[personIndex].name)
+
+    this.setState({persons: tempPersons})
+
+    //Max;s approach
+    // const personIndex = this.state.persons.findIndex(p => {
+    //   return p.id === id
+    // })
+
+    // const person = {
+    //   ...this.state.person[personIndex]
+    // }
+
+    
+    // // ALTERNATIVE const person = Object.assign({}, this.state.persons[personIndex])
+
+    // person.name = event.target.value
+
+    // const persons = [...this.state.persons]
+    // persons[personIndex] = person
+
+    // this.setState({ persons: persons})
   }
 
   showHideButtonHandler = () =>{
@@ -47,7 +71,8 @@ class App extends Component { //class can t be used, for instead, className is u
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
-                key={person.key}
+                key={person.id}
+                change={(event) => this.nameChangeHandler(event, person.id)}
                 />
               )
             })
