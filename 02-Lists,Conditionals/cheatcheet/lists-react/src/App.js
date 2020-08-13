@@ -4,9 +4,9 @@ import Person from './Person/person.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
     persons: [
-      {name: "Erfan", age: "22"},
-      {name: "ًRandkill", age: "23"},
-      {name: "Randkill 3", age: "24"}
+      {id: '9j3fh', name: "Erfan", age: "22"},
+      {id: 'bg47f', name: "ًRandkill", age: "23"},
+      {id: 'v7i6bi', name: "Randkill 3", age: "24"}
     ],
     showPersons: false
   }
@@ -47,6 +47,7 @@ class App extends Component { //class can t be used, for instead, className is u
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
+                key={person.key}
                 />
               )
             })
