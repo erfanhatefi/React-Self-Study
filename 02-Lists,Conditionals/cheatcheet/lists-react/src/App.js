@@ -27,7 +27,9 @@ class App extends Component { //class can t be used, for instead, className is u
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons
+    //const persons = this.state.persons.slice()
+    //ALTERNATIVE:
+    const persons = [...this.state.persons]
     persons.splice(personIndex, 1)
     this.setState({persons: persons})
   }
