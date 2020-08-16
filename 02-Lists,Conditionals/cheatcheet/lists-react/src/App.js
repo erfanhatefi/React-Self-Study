@@ -89,14 +89,16 @@ class App extends Component { //class can t be used, for instead, className is u
           }
           </div>
       )
-
       style.backgroundColor = 'red'
     }
+
+    let classes = ['red', 'bold'].join(' '); //"red bold"
+
 
     return (
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
-        <p>Nicely working! </p>
+        <p className={classes}>Nicely working! </p>
         <button style={style} onClick={this.showHideButtonHandler}>Switch Name</button>
         {persons}
       </div>
