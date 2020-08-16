@@ -59,6 +59,16 @@ class App extends Component { //class can t be used, for instead, className is u
   }
 
   render() {
+
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
+
     let persons = null
 
     if (this.state.showPersons === true) {
@@ -79,13 +89,15 @@ class App extends Component { //class can t be used, for instead, className is u
           }
           </div>
       )
+
+      style.backgroundColor = 'red'
     }
 
     return (
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
         <p>Nicely working! </p>
-        <button onClick={this.showHideButtonHandler}>Switch Name</button>
+        <button style={style} onClick={this.showHideButtonHandler}>Switch Name</button>
         {persons}
       </div>
     );
