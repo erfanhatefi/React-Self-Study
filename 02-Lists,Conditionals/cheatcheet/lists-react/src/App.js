@@ -92,7 +92,12 @@ class App extends Component { //class can t be used, for instead, className is u
       style.backgroundColor = 'red'
     }
 
-    let classes = ['red', 'bold'].join(' '); //"red bold"
+    const classes = [];
+    if(this.state.persons.length <= 2){
+      classes.push('red')
+    }else{
+      classes.push('bold')
+    }
 
 
     return (
