@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Validation from './Components/ValidationComponent.js'
+import Validation from './Components/Validation/ValidationComponent.js'
+import Char from './Components/Char Component/CharComponent.js'
 
 class App extends Component{
   state = {
@@ -14,6 +15,11 @@ class App extends Component{
   }
 
   render() {
+    const charList = this.state.userInput.split("").map(ch => {
+      return <Char character={ch}/>
+    })
+
+
     return (
        <div>
           <header>
@@ -22,6 +28,7 @@ class App extends Component{
           <input type='text' onChange={this.inputChangeHandler} value={this.state.userInput}/>
           <p>{this.state.userInput}</p>
           <Validation inputLength={this.state.userInput.length}/>
+          {charList}
         </div>
       );
     }
