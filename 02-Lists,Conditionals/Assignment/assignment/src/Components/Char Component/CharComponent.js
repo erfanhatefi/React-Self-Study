@@ -1,10 +1,11 @@
 import React from 'react'
+import './CharComponent.css'
 
 const char = (props) => {
-    
-    reutnr (
-        <div>
 
+    return (
+        <div className='Char'>
+            {props.character}
         </div>
     )
 }
