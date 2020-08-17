@@ -67,7 +67,10 @@ class App extends Component { //class can t be used, for instead, className is u
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover' : {
+        backgroundColor: 'blue'
+      }
     }
 
     let persons = null
@@ -91,6 +94,9 @@ class App extends Component { //class can t be used, for instead, className is u
           </div>
       )
       style.backgroundColor = 'red'
+      style[':hover'] = {
+        backgroundColor: 'gray'
+      }
     }
 
     const classes = [];
