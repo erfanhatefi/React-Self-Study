@@ -7,3 +7,9 @@
     box-shadow: 0 2px 2px #dddddd;
     text-align: center;
 } 
+
+@media (min-width: 500px){
+    .Person {
+        width: 450px;
+    }
+}
