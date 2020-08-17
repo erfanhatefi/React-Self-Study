@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium from 'radium'
 import Person from './Person/person.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
@@ -112,4 +113,4 @@ class App extends Component { //class can t be used, for instead, className is u
   }
 }
 
-export default App;
+export default Radium(App);
