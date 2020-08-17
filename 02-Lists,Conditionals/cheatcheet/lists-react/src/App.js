@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from 'radium'
+import Radium, { StyleRoot } from 'radium'
 import Person from './Person/person.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
@@ -108,12 +108,14 @@ class App extends Component { //class can t be used, for instead, className is u
 
 
     return (
+      <StyleRoot>
       <div className="App">
         <h1>Hello, this is my first React app!</h1>
         <p className={classes}>Nicely working! </p>
         <button style={style} onClick={this.showHideButtonHandler}>Switch Name</button>
         {persons}
       </div>
+      </StyleRoot>
     );
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi, I m called React')); alternative way
   }
