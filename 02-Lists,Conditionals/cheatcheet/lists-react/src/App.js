@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/person.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
@@ -91,19 +91,18 @@ class App extends Component { //class can t be used, for instead, className is u
           </div>
       )
       style.backgroundColor = 'red'
-    
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if(this.state.persons.length <= 2){
-      classes.push('red')
+      assignedClasses.push(classes.red)
     }else{
-      classes.push('bold')
+      assignedClasses.push(classes.bold)
     }
 
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hello, this is my first React app!</h1>
         <p className={classes}>Nicely working! </p>
         <button style={style} onClick={this.showHideButtonHandler}>Switch Name</button>
