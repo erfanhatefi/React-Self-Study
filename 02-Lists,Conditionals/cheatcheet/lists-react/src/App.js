@@ -60,17 +60,8 @@ class App extends Component { //class can t be used, for instead, className is u
 
   render() {
 
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-  
-    }
-
     let persons = null
+    let btnClass = null
 
     if (this.state.showPersons === true) {
       persons = (
@@ -90,7 +81,7 @@ class App extends Component { //class can t be used, for instead, className is u
           }
           </div>
       )
-      style.backgroundColor = 'red'
+      btnClass=classes.Red
     }
 
     const assignedClasses = [];
@@ -104,8 +95,8 @@ class App extends Component { //class can t be used, for instead, className is u
     return (
       <div className={classes.App}>
         <h1>Hello, this is my first React app!</h1>
-        <p className={classes}>Nicely working! </p>
-        <button style={style} onClick={this.showHideButtonHandler}>Switch Name</button>
+        <p>Nicely working! </p>
+        <button className={btnClass} onClick={this.showHideButtonHandler}>Switch Name</button>
         {persons}
       </div>
     );
