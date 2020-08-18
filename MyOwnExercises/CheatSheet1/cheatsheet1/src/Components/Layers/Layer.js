@@ -4,7 +4,7 @@ import './Layer.css'
 const Layer = (props) => {
     return(
         <div className="Layer-Border">
-            <h1>Hi</h1>
+            <h1>{props.info}</h1>
         </div>
     )
 }
