@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Person from './Person/person.js'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
     persons: [
@@ -69,13 +70,14 @@ class App extends Component { //class can t be used, for instead, className is u
           {
             this.state.persons.map((person, index) => {
               return(
-                <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                change={(event) => this.nameChangeHandler(event, person.id)}
-                />
+                <ErrorBoundary key={person.id}>
+                  <Person
+                  click={() => this.deletePersonHandler(index)}
+                  name={person.name}
+                  age={person.age}
+                  change={(event) => this.nameChangeHandler(event, person.id)}
+                  />
+                </ErrorBoundary>
               )
             })
           }
