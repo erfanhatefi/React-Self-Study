@@ -5,6 +5,7 @@ const Layer = (props) => {
     return(
         <div className="Layer-Border">
             <h1>{props.info}</h1>
+            <button className="DeleteButton">-</button>
         </div>
     )
 }
