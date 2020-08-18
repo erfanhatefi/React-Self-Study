@@ -12,12 +12,19 @@ class App extends Component {
     console.log('Button Clicked !')
 
     const tempLayers = [...this.state.layers]
-
-    tempLayers.push({info: '2'});
+    const layerId = Date.now()
+    tempLayers.push({info: '2', id: layerId});
     this.setState({layers: tempLayers})
     //console.log('New Layers count:', tempLayers[0])
     console.log(this.state)
 
+  }
+
+  deleteLayer = (index) => {
+    const tempLayers = [...this.state.layers]
+    tempLayers.splice(index, 1)
+
+    this.setState({layers: tempLayers})
   }
 
   render() {
@@ -26,9 +33,11 @@ class App extends Component {
     Layers = (
       <div className="App">
         {
-          this.state.layers.map((layer) => {
+          this.state.layers.map((layer, index) => {
             return(
-              <Layer info={layer.info}/>
+              <Layer info={layer.info}
+              delete={() => this.deleteLayer(index)}
+              />
             )
           })
         }
