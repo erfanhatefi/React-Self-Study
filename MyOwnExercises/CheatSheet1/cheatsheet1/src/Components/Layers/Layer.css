@@ -1,0 +1,10 @@
+.Layer-Border {
+    width: 100px;
+    height: 200px;
+    margin: 15px;
+    border-radius: 5%;
+    border: 2px solid #978d8d;
+    padding: 20px;
+    box-shadow: 0 2px 2px #dddddd;
+    text-align: center;
+}
