@@ -24,7 +24,7 @@ class App extends Component {
     let Layers = null
     
     Layers = (
-      <div>
+      <div className="App">
         {
           this.state.layers.map((layer) => {
             return(
