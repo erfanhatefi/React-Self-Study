@@ -17,7 +17,6 @@ class App extends Component {
     this.setState({layers: tempLayers})
     //console.log('New Layers count:', tempLayers[0])
     console.log(this.state)
-
   }
 
   deleteLayer = (index) => {
@@ -37,6 +36,7 @@ class App extends Component {
             return(
               <Layer info={layer.info}
               delete={() => this.deleteLayer(index)}
+              key={layer.id}
               />
             )
           })
