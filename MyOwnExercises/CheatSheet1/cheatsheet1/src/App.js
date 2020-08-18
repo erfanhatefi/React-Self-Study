@@ -13,7 +13,7 @@ class App extends Component {
 
     const tempLayers = [...this.state.layers]
     const layerId = Date.now()
-    tempLayers.push({info: '2', id: layerId});
+    tempLayers.push({info: '', id: layerId});
     this.setState({layers: tempLayers})
     //console.log('New Layers count:', tempLayers[0])
     console.log(this.state)
@@ -22,6 +22,20 @@ class App extends Component {
   deleteLayer = (index) => {
     const tempLayers = [...this.state.layers]
     tempLayers.splice(index, 1)
+
+    this.setState({layers: tempLayers})
+  }
+
+  changeHandler = (event, layerId) => {
+    const layerIndex = this.state.layers.findIndex(layer => {
+      return (layer.id === layerId)
+    })    
+
+    const tempLayers = [...this.state.layers]
+
+    const newInfo = event.target.value
+    tempLayers[layerIndex].info = newInfo
+    //console.log(tempPersons[personIndex].name)
 
     this.setState({layers: tempLayers})
   }
@@ -36,6 +50,7 @@ class App extends Component {
             return(
               <Layer info={layer.info}
               delete={() => this.deleteLayer(index)}
+              change={(event) => this.changeHandler(event, layer.id)}
               key={layer.id}
               />
             )
