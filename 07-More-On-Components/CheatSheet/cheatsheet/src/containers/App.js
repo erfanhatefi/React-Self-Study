@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/person.js'
+import Person from '../Persons/Person/person.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
     persons: [
