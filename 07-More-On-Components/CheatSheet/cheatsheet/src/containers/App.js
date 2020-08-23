@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from '../Persons/Person/person.js'
+import Persons from '../Components/Persons/Persons.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
     persons: [
@@ -66,19 +66,10 @@ class App extends Component { //class can t be used, for instead, className is u
     if (this.state.showPersons === true) {
       persons = (
         <div>
-          {
-            this.state.persons.map((person, index) => {
-              return(
-                  <Person
-                  click={() => this.deletePersonHandler(index)}
-                  name={person.name}
-                  age={person.age}
-                  key={person.id}
-                  change={(event) => this.nameChangeHandler(event, person.id)}
-                  />
-              )
-            })
-          }
+          <Persons 
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangeHandler}/>
           </div>
       )
       btnClass=classes.Red
