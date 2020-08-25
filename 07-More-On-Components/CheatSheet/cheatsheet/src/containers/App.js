@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../Components/Persons/Persons.js'
+import Cockpit from '../Components/Cockpit/Cockpit.js'
 class App extends Component { //class can t be used, for instead, className is uesed!
   state = {
     persons: [
@@ -61,7 +62,7 @@ class App extends Component { //class can t be used, for instead, className is u
   render() {
 
     let persons = null
-    let btnClass = null
+    
 
     if (this.state.showPersons === true) {
       persons = (
@@ -72,22 +73,16 @@ class App extends Component { //class can t be used, for instead, className is u
           changed={this.nameChangeHandler}/>
           </div>
       )
-      btnClass=classes.Red
     }
 
-    const assignedClasses = [];
-    if(this.state.persons.length <= 2){
-      assignedClasses.push(classes.red)
-    }else{
-      assignedClasses.push(classes.bold)
-    }
-
+    
 
     return (
       <div className={classes.App}>
-        <h1>Hello, this is my first React app!</h1>
-        <p>Nicely working! </p>
-        <button className={btnClass} onClick={this.showHideButtonHandler}>Switch Name</button>
+        <Cockpit 
+        clicked={this.showHideButtonHandler}
+        persons={this.state.persons}
+        showPersonsStatus={this.state.showPersons}/>
         {persons}
       </div>
     );
